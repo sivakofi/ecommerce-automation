@@ -4,7 +4,7 @@ This project automates testing for the [Automation Exercise](https://automatione
 
 ## 📂 Structure
 * `test/` - The test cases (e.g., Login, Purchase).
-* `page/` - Keywords and Page Objects.
+* `pages/` - Keywords and Page Objects.
 * `results/` - Where log files are saved.
 
 ## 🚀 Setup
