@@ -1,0 +1,10 @@
+# Robot Framework Results
+results/
+*.html
+*.xml
+*.png
+
+# Python
+__pycache__/
+*.py[cod]
+venv/
