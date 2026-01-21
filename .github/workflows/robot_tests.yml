@@ -1,0 +1,32 @@
+name: Run Robot Framework Tests
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+
+    - name: Install Dependencies
+      run: |
+        pip install -r requirements.txt
+
+    - name: Run Robot Tests
+      run: |
+        # Run tests and ignore errors so we can upload reports even if tests fail
+        robot -d results tests/ || true
+
+    - name: Upload Test Report
+      uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: robot-test-report
+        path: results/
